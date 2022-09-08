@@ -28,7 +28,7 @@
 #define TRANSMIT_TIMEOUT_MS 500
 #define READ_TIMEOUT_MS 500
 
-extern zmq::context_t *ctx;
+//extern zmq::context_t *ctx;
 
 RelayWriter::RelayWriter(Endpoint* _endpoint,Proxy* _proxy, PacketQueue& recvQueue)
 	: _please_stop(false)
@@ -44,8 +44,8 @@ RelayWriter::RelayWriter(Endpoint* _endpoint,Proxy* _proxy, PacketQueue& recvQue
 	deviceProxy=NULL;
 	manager=NULL;
 
-	sock = new zmq::socket_t(*ctx, zmq::socket_type::pub);
-	(*sock).connect("tcp://127.0.0.1:9999");
+	//sock = new zmq::socket_t(*ctx, zmq::socket_type::pub);
+	//(*sock).connect("tcp://127.0.0.1:9999");
 }
 
 RelayWriter::RelayWriter(Endpoint* _endpoint,DeviceProxy* _deviceProxy,Manager* _manager, PacketQueue& recvQueue, PacketQueue& sendQueue)
@@ -63,14 +63,14 @@ RelayWriter::RelayWriter(Endpoint* _endpoint,DeviceProxy* _deviceProxy,Manager* 
 	deviceProxy=_deviceProxy;
 	manager=_manager;
 
-	sock = new zmq::socket_t(*ctx, zmq::socket_type::pub);
-	(*sock).connect("tcp://127.0.0.1:9999");
+	//sock = new zmq::socket_t(*ctx, zmq::socket_type::pub);
+	//(*sock).connect("tcp://127.0.0.1:9999");
 }
 
 RelayWriter::~RelayWriter() {
 	filters.clear();
-	(*sock).close();
-	delete sock;
+	//(*sock).close();
+	//delete sock;
 }
 
 

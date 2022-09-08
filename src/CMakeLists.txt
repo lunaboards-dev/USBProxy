@@ -27,7 +27,7 @@ set(CMAKE_CPP_FLAGS "${CMAKE_CPP_FLAGS} -g -Wshadow -Wpointer-arith  -Wcast-alig
 add_subdirectory(lib)
 add_subdirectory(Plugins)
 add_subdirectory(tools)
-add_subdirectory(greengrass)
+# add_subdirectory(greengrass)
 
 # Create uninstall target
 configure_file(
