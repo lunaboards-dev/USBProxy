@@ -278,6 +278,16 @@ int DeviceProxy_LibUSB::connect(int vendorId, int productId, bool includeHubs) {
 			libusb_exit(context);
 			return rc;
 		}
+		rc = libusb_reset_device(dev_handle);
+		if (rc != LIBUSB_SUCCESS) {
+			if (debugLevel) {
+				cerr << "Error opening device handle: " << libusb_strerror((libusb_error) rc) << endl;
+			}
+			dev_handle = NULL;
+			libusb_free_device_list(list, 1);
+			libusb_exit(context);
+			return rc;
+		}
 	}
 
 	libusb_free_device_list(list, 1);
