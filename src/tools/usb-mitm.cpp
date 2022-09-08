@@ -217,9 +217,9 @@ int main(int argc, char **argv)
 	//backend->close();
 	//zmq_proxy.join();
 	//ctx->close();
-	delete(frontend);
-	delete(backend);
-	delete(manager);
+	//delete(frontend);
+	//delete(backend);
+	//delete(manager);
 	
 	if (keylog_output_file) {
 		fclose(keylog_output_file);
