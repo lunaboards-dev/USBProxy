@@ -303,14 +303,14 @@ int DeviceProxy_LibUSB::connect(int vendorId, int productId, bool includeHubs) {
 	//end
 
 	//check that device is responsive
-	unsigned char unused[4];
+	/*unsigned char unused[4];
 	rc = libusb_get_string_descriptor(dev_handle, 0, 0, unused, sizeof(unused));
 	if (rc < 0) {
 		cerr << "Device unresponsive: " << libusb_strerror((libusb_error) rc) << endl;
 		libusb_close(dev_handle);
 		libusb_exit(context);
 		return rc;
-	}
+	}*/
 
 	if (debugLevel) {
 		char * device_desc = toString();
